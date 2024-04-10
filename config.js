@@ -1,5 +1,5 @@
-
-const firebase=require('firebase')
+const {initializeApp}=require('firebase/app')
+const{ getFirestore,collection }=require('firebase/firestore')
 const firebaseConfig = {
   apiKey: "AIzaSyCE-R9_ZYnGH7C8LOomDKqm-n5r7njHdms",
   authDomain: "game-crud-b33c9.firebaseapp.com",
@@ -8,7 +8,6 @@ const firebaseConfig = {
   messagingSenderId: "663463960343",
   appId: "1:663463960343:web:200fa2a39285742d982152"
 };
-firebase.initializeApp(firebaseConfig)
-const db=firebase.firestore()
-const players=db.collection("players")
+initializeApp(firebaseConfig)
+const players=collection(getFirestore(),"players")
 module.exports = players
